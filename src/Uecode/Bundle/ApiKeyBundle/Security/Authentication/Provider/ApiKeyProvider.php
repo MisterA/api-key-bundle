@@ -44,7 +44,7 @@ class ApiKeyProvider implements AuthenticationProviderInterface
                 }
             }
         } else {
-            $this->doAuth($this->userProvider, $token);
+            return $this->doAuth($this->userProvider, $token);
         }
     }
 
