@@ -39,9 +39,9 @@ class ApiKeyListener implements ListenerInterface
     public function handle(GetResponseEvent $event)
     {
         $request = $event->getRequest();
-        if ($request->query->has('api_key')) {
+        if ($request->get('api_key')) {
             $token = new ApiKeyUserToken();
-            $token->setApiKey($request->query->get('api_key'));
+            $token->setApiKey($request->get('api_key'));
 
             try {
                 $authToken = $this->authenticationManager->authenticate($token);
